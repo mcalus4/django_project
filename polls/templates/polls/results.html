@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-  </head>
-  <body>
-     <h1>{{ question.question_text }}</h1>
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+      
+            <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+       <h1>{{ question.question_text }}</h1>
 
     <ul>
     {% for choice in question.choice_set.all %}
@@ -14,7 +13,5 @@
     </ul>
 
     <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
-  </body>
-</html>
-
-
+        
+{% endblock content %}

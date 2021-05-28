@@ -34,7 +34,5 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})
 
 
